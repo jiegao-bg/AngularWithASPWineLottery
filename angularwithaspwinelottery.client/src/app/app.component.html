@@ -1,0 +1,77 @@
+<h1 id="tableLabel">Wine Lottery</h1>
+
+<p>Experis arrangerer vinlotteri hver fredag.Lotteriet fungerer ved at man kjøper et eller flere lodd til 10kr/stk.
+  Det er som standard 100 lodd til salgs per lotteri. Loddene er nummererte og man kan selv velge hvilke nummer man vil kjøpe, gitt at de er ledige.
+  X-antall viner kjøpes inn for ca. 1000 kr. Det trekkes en vinner av en og en vin.
+  Et tall kan bare trekkes en gang. De dyreste vinene blir loddet ut sist.</p>
+
+<h1>{{title}} {{ticketNumber}}</h1>
+
+<div class="parent-container">
+  <div class="main-content">
+    <h1>Ticket Register</h1>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <!-- Name -->
+      <mat-form-field>
+        <input matInput formControlName="name" required
+               placeholder="Type a name*">
+      </mat-form-field>
+
+      <!-- ID -->
+      <mat-form-field>
+        <input matInput formControlName="id" required
+               placeholder="Enter the ticket id*">
+      </mat-form-field>
+
+      <!-- TICKET -->
+      <mat-form-field>
+        <input matInput formControlName="ticket" required
+               placeholder="Enter the ticket number*">
+      </mat-form-field>
+
+      <!-- COMMENT -->
+      <mat-form-field>
+        <textarea matInput formControlName="comment"
+                  placeholder="Comment"></textarea>
+      </mat-form-field>
+
+      <div>
+        <button mat-flat-button color="primary"
+                type="submit">
+          Register
+        </button>
+        <button mat-flat-button color="secondary" (click)="clear()">
+          Clear
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <p *ngIf="!forecasts"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>
+
+  <div class="main-content2">
+    <h1>Ticket Record</h1>
+
+    <table *ngIf="forecasts">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Name</th>
+          <th>TicketId</th>
+          <th>NumberOfTicket</th>
+          <th>Summary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let forecast of forecasts">
+          <td>{{ forecast.date }}</td>
+          <td>{{ forecast.name }}</td>
+          <td>{{ forecast.id }}</td>
+          <td>{{ forecast.ticket }}</td>
+          <td>{{ forecast.summary }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
