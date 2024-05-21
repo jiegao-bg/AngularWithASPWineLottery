@@ -58,6 +58,7 @@ export class AppComponent {
     this.userForm.reset();
   }
 
+  //https://angularwithaspwinelotteryserver20240513134923.azurewebsites.net  https://localhost:7255/winelottery
   getForecasts() {
     this.http.get<LotteryUser[]>('https://localhost:7255/winelottery').subscribe(
       (result) => {
@@ -131,3 +132,44 @@ export class AppComponent {
   ticketNumber = 100;
   sum = 0;
 }
+
+// How to use finalize() in Angular
+// This component method executeRequests performs the POST request and, using RxJS's finalize operator,
+//ensures that the subsequent GET requests are only executed after the POST request completes, regardless of its outcome.
+//Adjust your data handling logic within each subscription as needed.
+
+/*import { Component } from '@angular/core';
+import { finalize } from 'rxjs/operators';
+import { DataService } from './data.service';
+
+@Component({
+  selector: 'app-my-component',
+  templateUrl: './my-component.component.html',
+})
+export class MyComponent {
+  constructor(private dataService: DataService) {}
+
+  executeRequests() {
+    const postData = { /* your data for POST #1# };
+
+this.dataService.createSomething(postData).pipe(
+  finalize(() => {
+    // After POST completes, simultaneously execute GET requests
+    this.dataService.getFirstData().subscribe((firstData) => {
+      console.log('First data:', firstData);
+      // Handle first data
+    });
+
+    this.dataService.getSecondData().subscribe((secondData) => {
+      console.log('Second data:', secondData);
+      // Handle second data
+    });
+  })
+).subscribe({
+  next: (response) => console.log('POST completed', response),
+  error: (error) => console.error('Error during POST', error)
+});
+}
+}*/
+
+

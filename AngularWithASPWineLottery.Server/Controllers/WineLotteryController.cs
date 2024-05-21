@@ -5,6 +5,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Globalization;
 using System.Net.Sockets;
+using System.Xml.Linq;
 
 namespace AngularWithASPWineLottery.Server.Controllers
 {
@@ -131,6 +132,29 @@ namespace AngularWithASPWineLottery.Server.Controllers
             }
             return users;
         }
-
     }
 }
+
+//[HttpPost]
+//public async Task<ActionResult> CreateSomething([FromBody] MyData data)
+//{
+//    // Simulate an asynchronous operation, e.g., saving data to a database
+//    await Task.Delay(1000); // Delay to mimic async work
+//    return Ok();
+//}
+
+//[HttpGet("first")]
+//public async Task<ActionResult<MyData>> GetFirstData()
+//{
+//    // Simulate an asynchronous fetch operation
+//    await Task.Delay(500); // Delay to mimic async work
+//    return Ok(new MyData { /* Populate with your data */ });
+//}
+
+//[HttpGet("second")]
+//public async Task<ActionResult<MyData>> GetSecondData()
+//{
+//    // Simulate another asynchronous fetch operation
+//    await Task.Delay(500); // Delay to mimic async work
+//    return Ok(new MyData { /* Populate with your data */ });
+//}

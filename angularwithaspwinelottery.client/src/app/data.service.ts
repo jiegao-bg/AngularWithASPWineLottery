@@ -18,4 +18,12 @@ export class DataService {
   getNumberByTicket(ticket: number): Observable<any> {
     return this.http.get<any>(`${this.url}/${ticket}`);
   }
+
+//  getFirstData(): Observable<any> {
+//    return this.http.get(`${this.baseUrl}/first`);
+//  }
+//
+//  getSecondData(): Observable<any> {
+//    return this.http.get(`${this.baseUrl}/second`);
+//  }
 }
